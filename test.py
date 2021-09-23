@@ -12,18 +12,32 @@ soup = BeautifulSoup(HtmlContent , 'html.parser')
 title = soup.title.text 
 print(title)
 
-descript = set()
 
-# for name in meta :
 
-#     descriptText = name.get()
-#     descript.add(descriptText)
-#     print(descript)
-
-# for tag in soup.find_all("meta"):
-#     if tag.get("property", None) == "og:description":
-#         descript.add( tag.get("content", None) )
-#         print(descript)
 
 des = soup.find("meta",attrs={'name':'description'})
 print(des["content"])
+
+abstract= soup.find("div",attrs={'id':'p-0001'})
+print(abstract.text)
+print("\n")
+print("\n")
+
+# for i in range(1,13):
+#     if i <10:
+#         claim = soup.find('div',attrs={'id': f'CLM-0000{i}'.format(i)})
+#         print(claim.text)
+#     elif 10 <= i :
+#         claim = soup.find('div',attrs={'id': f'CLM-000{i}'.format(i)})
+  
+#         print(claim.text) 
+
+
+claim = soup.find_all("span",attrs={'itemprop':'count'})
+print(claim)
+
+imgs = soup.find_all("img")
+
+for img in imgs :
+
+    print(img['src'])
