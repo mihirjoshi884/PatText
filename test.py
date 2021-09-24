@@ -23,21 +23,23 @@ print(abstract.text)
 print("\n")
 print("\n")
 
-# for i in range(1,13):
-#     if i <10:
-#         claim = soup.find('div',attrs={'id': f'CLM-0000{i}'.format(i)})
-#         print(claim.text)
-#     elif 10 <= i :
-#         claim = soup.find('div',attrs={'id': f'CLM-000{i}'.format(i)})
+for i in range(1,13):
+    if i <10:
+        claim = soup.find('div',attrs={'id': f'CLM-0000{i}'.format(i)})
+        print(claim.text)
+    elif 10 <= i :
+        claim = soup.find('div',attrs={'id': f'CLM-000{i}'.format(i)})
   
-#         print(claim.text) 
+        print(claim.text) 
 
 
-claim = soup.find_all("span",attrs={'itemprop':'count'})
-print(claim)
+# claim = soup.find_all("section",attrs={'itemprop':'claims'})
+# print(claim)
 
-imgs = soup.find_all("img")
 
-for img in imgs :
 
-    print(img['src'])
+# imgs = soup.find_all("img")
+
+# for img in imgs :
+
+#     print(img['src'])

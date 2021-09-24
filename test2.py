@@ -33,16 +33,25 @@ def get_url(url,doc,loc):
 
     document_name = doc
     document_loc = loc
-    if not os.path.exists(document_name):
-        os.mkdir(document_name)
+    docdir = "patents"
+    # if not os.path.exists(docdir):
+    #     os.mkdir(docdir)
     
-    filepath =os.path.join(os.path.realpath(os.getcwd()),document_name) 
-    with open(filepath,"wb") as f:
-        fnlist=[title,abstract,claims]
+    # path =os.path.join(os.chdir(document_loc),docdir)
+    # absolute_path = os.path.join(path,f'{document_name}.text'.format(document_name))
+    # print(absolute_path)
+    # with open(absolute_path,"wb") as f:
+    #     fnlist=[title,abstract,claims]
         
-        for functions in fnlist :
-            f.write(functions)
+    #     for functions in fnlist :
+    #         f.write(functions)
+
+    print(os.getcwd())
+    print(os.chdir('documents'))
+    # print(os.chdir(document_loc))
+    # print(os.getcwd())
+
 
     
-
+get_url("https://patents.google.com/patent/US9416752?oq=ninad+joshi","gas turbine","Documents")
 
