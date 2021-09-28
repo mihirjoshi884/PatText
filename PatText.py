@@ -1,9 +1,10 @@
 
 from tkinter import *
-from tkinter import ttk 
+from tkinter import ttk
 import requests
 from bs4 import BeautifulSoup
 import os
+from tkinter import messagebox
 
 
 
@@ -12,23 +13,24 @@ def main ():
     root = Tk()
     root.geometry("2000x2000")
     root.title("PatText")
-
-    urlvar= StringVar()
+    document_no_list= []
+    doc_list= []
+    document_no= StringVar()
     DocNameVar= StringVar()
     
     Headinglabel= Label(root,text="PatText",font=("bold",70))
     Headinglabel.place(x=600,y=40)
 
-    URL = Label(root,text="URL",font=("bold",22))
-    URL.place(x=400,y=300)
+    DocNumber = Label(root,text="Document number",font=("bold",22))
+    DocNumber.place(x=400,y=300)
     Docname = Label(root,text="Document Name",font=("bold",22))
     Docname.place(x=400,y=350)
     
     DocLoc = Label(root,text= "Document LOCATION",font=("bold",22))
     DocLoc.place(x=400,y=400)
 
-    UrlEntry = Entry(root,textvar= urlvar)
-    UrlEntry.place(x=700 ,y = 300)
+    DocNumberEntry = Entry(root,textvar= document_no)
+    DocNumberEntry.place(x=700 ,y = 300)
 
     DocNameEntry = Entry(root,textvar= DocNameVar)
     DocNameEntry.place(x=700 ,y = 350)
@@ -43,13 +45,20 @@ def main ():
     dropdown = ttk.Combobox(root,values= lists)
     dropdown.place(x=700,y=400)
 
-    def DocProcessFn():
-        url = str(urlvar.get())
-        doc = str(DocNameVar.get())
-        loc = str(dropdown.get())
+    def add_btn_fn():
+        document_no_list.append(document_no.get())
+        doc_list.append(DocNameVar.get())
+        DocNumberEntry.delete(0,END)
+        DocNameEntry.delete(0,END)
+        messagebox.showinfo("Information","Document information has been stored for the further process")
 
-        
-        surl = url
+
+    add_btn = Button(text="ADD MORE DOCUMENTS",command= add_btn_fn)
+    add_btn.place(x=750, y=450)
+
+    
+    def scrapper(doc_no,doc_name):
+        url=f'https://patents.google.com/patent/{doc_no}'.format(doc_no)
         r = requests.get(url)
         HtmlContent = r.content
         soup = BeautifulSoup(HtmlContent , 'html.parser')
@@ -59,7 +68,7 @@ def main ():
         print(title)
 
         
-        abstract= str(soup.find("div",attrs={'id':'p-0001'}).text)
+        abstract= str(soup.find("div",attrs={'class':'abstract'}).text)
         print(abstract)
 
         print("\n")
@@ -71,11 +80,11 @@ def main ():
         print(lenclaim)
     
     
-        document_name = doc
-        document_loc = loc
+        document_name = doc_name
+        # document_loc = loc
         docdir = "patents"
-    
-        path =os.path.join(os.getcwd(),docdir,document_loc)
+
+        path =os.path.join(os.getcwd(),docdir)
         absolute_path = os.path.join(path,f'{document_name}.text'.format(document_name))
         print(absolute_path)
     
@@ -83,7 +92,7 @@ def main ():
             os.mkdir(docdir)
     
         with open(absolute_path,"w") as f:
-        
+            
             f.write("TILE -\r\n")
             f.write(title)
             f.write("\r\n")
@@ -99,14 +108,37 @@ def main ():
                     f.write(str(claim))
                 elif 10 <= i :
                     claim = soup.find('div',attrs={'id': f'CLM-000{i}'.format(i)}).text
-  
-                    f.write(str(claim))          
+    
+                    f.write(str(claim))
+        messagebox.showinfo("ATTENTION ","your file/files has been processed")
+
+    def DocProcessFn():
+        DocNum = ""
+        DocName = "" 
         
+        if len(document_no_list) == len(doc_list) ==0 :
+
+            DocNum = document_no.get()
+            DocName = DocNameVar.get()
+            scrapper(DocNum,DocName)
+        elif len(document_no_list) == len (doc_list):
+            
+            for i in range(0,len(doc_list)):
+                
+                scrapper(document_no_list[i],doc_list[i])
+
         
+        else :
+            messagebox.showerror("Error", "insufficient data document information has been entered")
+            quit()
+            
+        
+
     docprocess = Button(text="DocProcess",command= DocProcessFn)
     docprocess.place(x=600,y=450)
   
     root.mainloop()
+
 
 if __name__ == "__main__":
     main()
