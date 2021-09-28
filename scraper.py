@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import os
-from PatText import *
+
+
 class scrapper :
 
     def __init__(self,url,doc,loc):
@@ -27,5 +28,3 @@ class scrapper :
         return self.loc
 
 
-if __name__ == "__main__":
-    main()

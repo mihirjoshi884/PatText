@@ -57,8 +57,8 @@ url = "https://patents.google.com/patent/US9416752?oq=ninad+joshi"
                 f.write(str(claim))
 
 
-# imgs = soup.find_all("img")
+imgs = soup.find_all("img")
 
-# for img in imgs :
+for img in imgs :
 
-#     print(img['src'])
+    print(img['src'])

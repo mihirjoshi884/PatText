@@ -57,6 +57,9 @@ def main ():
     add_btn.place(x=750, y=450)
 
     
+
+
+    
     def scrapper(doc_no,doc_name):
         url=f'https://patents.google.com/patent/{doc_no}'.format(doc_no)
         r = requests.get(url)
@@ -110,6 +113,43 @@ def main ():
                     claim = soup.find('div',attrs={'id': f'CLM-000{i}'.format(i)}).text
     
                     f.write(str(claim))
+        
+        def image_downloader(document_name):
+            imgs = soup.find_all("img")
+            print(len(imgs))
+        
+            names= []
+            for i in range(1,len(imgs)+1):
+                names.append(f'{document_name}{i}'.format(document_name,i)+'.jpg')
+
+            link = []
+            i = 0
+            for img in imgs :
+                link.append(img['src'])
+            print(names,"\n")
+            print(link,"\n")
+
+            # path =os.path.join(os.getcwd(),docdir)
+            # absolute_path = os.path.join(path,f'{document_name}.text'.format(document_name))
+            # print(absolute_path)
+    
+
+            path =os.path.join(os.getcwd(),docdir)
+            absolute_path = os.path.join(path,f'{document_name}images'.format(document_name))
+            img_path = os.path.join(absolute_path,f'{names[i]}'.format(names[i]))
+
+            if not os.path.exists(f'{document_name}images'.format(document_name)):
+                os.mkdir(f'{document_name}images'.format(document_name))
+
+            for i in range(0,len(link)):
+                with open(absolute_path,'wb') as f:
+                    im = requests.get(link[i])
+                    f.write(im.content)
+        
+        image_downloader(document_name)
+
+            
+        
         messagebox.showinfo("ATTENTION ","your file/files has been processed")
 
     def DocProcessFn():
@@ -138,7 +178,6 @@ def main ():
     docprocess.place(x=600,y=450)
   
     root.mainloop()
-
 
 if __name__ == "__main__":
     main()
