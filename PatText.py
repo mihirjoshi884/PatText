@@ -84,6 +84,9 @@ def main ():
     
     
         document_name = doc_name
+        
+        print(document_name)
+        
         # document_loc = loc
         docdir = "patents"
 
@@ -123,12 +126,8 @@ def main ():
                 names.append(f'{document_name}{i}'.format(document_name,i)+'.jpg')
 
             link = []
-            i = 0
-            for img in imgs :
-                link.append(img['src'])
-            print(names,"\n")
-            print(link,"\n")
-
+            
+            
             # path =os.path.join(os.getcwd(),docdir)
             # absolute_path = os.path.join(path,f'{document_name}.text'.format(document_name))
             # print(absolute_path)
@@ -136,13 +135,23 @@ def main ():
 
             path =os.path.join(os.getcwd(),docdir)
             absolute_path = os.path.join(path,f'{document_name}images'.format(document_name))
-            img_path = os.path.join(absolute_path,f'{names[i]}'.format(names[i]))
+            print(absolute_path)
+            if not os.path.exists(absolute_path):
+                os.mkdir(absolute_path)
+            for img in imgs :
+                link.append(img['src'])
+            print(names,"\n")
+            print(link,"\n")
 
-            if not os.path.exists(f'{document_name}images'.format(document_name)):
-                os.mkdir(f'{document_name}images'.format(document_name))
+            
+
+            
 
             for i in range(0,len(link)):
-                with open(absolute_path,'wb') as f:
+                img_path = os.path.join(absolute_path,f'{names[i]}'.format(names[i]))
+                print(img_path)
+            
+                with open(img_path,'wb') as f:
                     im = requests.get(link[i])
                     f.write(im.content)
         

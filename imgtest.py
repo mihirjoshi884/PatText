@@ -2,8 +2,7 @@ import requests
 import os
 from bs4 import BeautifulSoup
 
-url = "https://patents.google.com/patent/US6612106?oq=ninad+joshi"
-r = requests.get(url)
+r = requests.get("https://patents.google.com/patent/US20130219895?oq=ninad+joshi")
 
 soup= BeautifulSoup(r.text,'html.parser')
 document_name= " ninad joshi"
