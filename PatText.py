@@ -1,10 +1,12 @@
 
 from tkinter import *
 from tkinter import ttk
+from tkinter.font import Font
 import requests
 from bs4 import BeautifulSoup
 import os
 from tkinter import messagebox
+import csv
 
 
 
@@ -17,49 +19,32 @@ def main ():
     doc_list= []
     document_no= StringVar()
     DocNameVar= StringVar()
-    
+    filepath= StringVar()
+
+
     Headinglabel= Label(root,text="PatText",font=("bold",70))
     Headinglabel.place(x=600,y=40)
 
-    DocNumber = Label(root,text="Document number",font=("bold",22))
-    DocNumber.place(x=400,y=300)
-    Docname = Label(root,text="Document Name",font=("bold",22))
-    Docname.place(x=400,y=350)
+    DocNumber = Label(root,text="US-PATENT NUMBER",font=("bold",22))
+    DocNumber.place(x=200,y=300)
+    Docname = Label(root,text="FILE-Name",font=("bold",22))
+    Docname.place(x=200,y=350)
     
-    DocLoc = Label(root,text= "Document LOCATION",font=("bold",22))
-    DocLoc.place(x=400,y=400)
+    DocLoc = Label(root,text= "Document-LOCATION",font=("bold",22))
+    DocLoc.place(x=200,y=400)
+
+    FILE_PATH= Label(root,text="FILE-PATH",font=("bold",22))
+    FILE_PATH.place(x=750,y=300)
+
+    filepathentry = Entry(root,textvar= filepath,width=50)
+    filepathentry.place(x=900,y=300)
 
     DocNumberEntry = Entry(root,textvar= document_no)
-    DocNumberEntry.place(x=700 ,y = 300)
+    DocNumberEntry.place(x=450 ,y = 300)
 
     DocNameEntry = Entry(root,textvar= DocNameVar)
-    DocNameEntry.place(x=700 ,y = 350)
+    DocNameEntry.place(x=450 ,y = 350)
 
-
-    lists = [
-        "documents",
-        "downloads",
-        "desktop"    
-    ]
-
-    dropdown = ttk.Combobox(root,values= lists)
-    dropdown.place(x=700,y=400)
-
-    def add_btn_fn():
-        document_no_list.append(document_no.get())
-        doc_list.append(DocNameVar.get())
-        DocNumberEntry.delete(0,END)
-        DocNameEntry.delete(0,END)
-        messagebox.showinfo("Information","Document information has been stored for the further process")
-
-
-    add_btn = Button(text="ADD MORE DOCUMENTS",command= add_btn_fn)
-    add_btn.place(x=750, y=450)
-
-    
-
-
-    
     def scrapper(doc_no,doc_name):
         url=f'https://patents.google.com/patent/{doc_no}'.format(doc_no)
         r = requests.get(url)
@@ -107,15 +92,18 @@ def main ():
             f.write(abstract)
             f.write("\r\n")
             f.write("Claims - ")
-    
+
+            
             for i in range(1,lenclaim+1):
                 if i <10:
-                    claim = soup.find('div',attrs={'id': f'CLM-0000{i}'.format(i)}).text
+                    claim = soup.find('div',attrs={'class':'claim-text'}).text
                     f.write(str(claim))
                 elif 10 <= i :
-                    claim = soup.find('div',attrs={'id': f'CLM-000{i}'.format(i)}).text
-    
+                    claim = soup.find('div',attrs={'class':'claim-text'}).text
+        
                     f.write(str(claim))
+                
+
         
         def image_downloader(document_name):
             imgs = soup.find_all("img")
@@ -180,11 +168,61 @@ def main ():
         else :
             messagebox.showerror("Error", "insufficient data document information has been entered")
             quit()
+
+    def getfile():
+        file = filepath.get()
+        import pandas as pd
+        csv= pd.read_csv(file,usecols=['PATENT-NUMBER','PATENT-NAME'])
+        df= pd.DataFrame(csv)
+
+
+        document_no_list=df['PATENT-NUMBER'].dropna().tolist()
+
+        print(document_no_list)
+        doc_list=df['PATENT-NAME'].dropna().tolist()
+        print(doc_list)
+
+        print(len(document_no_list))
+        print(len(doc_list))
+
+        for i in range (0,len(doc_list)):
+            scrapper(document_no_list[i],doc_list[i])
+
+    
+    file_path_btn = Button(root,text="Process File",command= getfile)
+    file_path_btn.place(x=1100,y=350) 
+
+    lists = [
+        "documents",
+        "downloads",
+        "desktop"    
+    ]
+
+    dropdown = ttk.Combobox(root,values= lists)
+    dropdown.place(x=450,y=400)
+
+    def add_btn_fn():
+        document_no_list.append(document_no.get())
+        doc_list.append(DocNameVar.get())
+        DocNumberEntry.delete(0,END)
+        DocNameEntry.delete(0,END)
+        messagebox.showinfo("Information","Document information has been stored for the further process")
+
+
+    add_btn = Button(text="ADD MORE DOCUMENTS",command= add_btn_fn)
+    add_btn.place(x=450, y=500)
+
+    
+
+
+    
+    
             
         
 
     docprocess = Button(text="DocProcess",command= DocProcessFn)
-    docprocess.place(x=600,y=450)
+    docprocess.place(x=250,y=500)
+
   
     root.mainloop()
 
