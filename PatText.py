@@ -147,7 +147,7 @@ def main ():
 
             
         
-        messagebox.showinfo("ATTENTION ","your file/files has been processed")
+        
 
     def DocProcessFn():
         DocNum = ""
@@ -158,12 +158,13 @@ def main ():
             DocNum = document_no.get()
             DocName = DocNameVar.get()
             scrapper(DocNum,DocName)
+            messagebox.showinfo("ATTENTION ","your file/files has been processed")
         elif len(document_no_list) == len (doc_list):
             
             for i in range(0,len(doc_list)):
                 
                 scrapper(document_no_list[i],doc_list[i])
-
+            messagebox.showinfo("ATTENTION ","your file/files has been processed")
         
         else :
             messagebox.showerror("Error", "insufficient data document information has been entered")

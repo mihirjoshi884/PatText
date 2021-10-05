@@ -28,3 +28,4 @@ class scrapper :
         return self.loc
 
 
+sc = scrapper("www.google.com","doc","download")
