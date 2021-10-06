@@ -93,15 +93,14 @@ def main ():
             f.write("\r\n")
             f.write("Claims - ")
 
-            
-            for i in range(1,lenclaim+1):
-                if i <10:
-                    claim = soup.find('div',attrs={'class':'claim-text'}).text
-                    f.write(str(claim))
-                elif 10 <= i :
-                    claim = soup.find('div',attrs={'class':'claim-text'}).text
-        
-                    f.write(str(claim))
+            claims = soup.find_all("div",attrs={'class':'claim-text'})
+
+            for claim in claims :
+                # f.write(str(claim))
+                claim = (claim.text)
+                f.write("\n"*4)
+                f.write(str(claim))
+                
                 
 
         
@@ -164,7 +163,7 @@ def main ():
             for i in range(0,len(doc_list)):
                 
                 scrapper(document_no_list[i],doc_list[i])
-            messagebox.showinfo("ATTENTION ","your file/files has been processed")
+                messagebox.showinfo("ATTENTION ","your file/files has been processed")
         
         else :
             messagebox.showerror("Error", "insufficient data document information has been entered")

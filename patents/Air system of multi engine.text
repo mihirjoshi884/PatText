@@ -1,0 +1,86 @@
+TILE -
+CA3078124A1 - Air system of multi-engine aircraft 
+      - Google Patents
+Abstract -
+ A multi-engine aircraft includes first and second gas turbine engines for providing motive power to the aircraft, each of the first and second engines comprising an air system, an air pressure line extending between and fluidly connecting the air systems of the first and second engines, and a pressure wave damper communicating with the air pressure line extending between the first and second engines. 
+Claims - 
+
+
+
+1.    A multi-engine aircraft, comprising:first and second gas turbine engines for providing motive power to the aircraft, each of the first and second engines comprising an air system;an air pressure line extending between and fluidly connecting the air systems of the first and second engines; and a pressure wave damper communicating with the air pressure line extending between the first and second engines. 
+
+
+
+2.    The multi-engine aircraft of claim 1, wherein the first engine and/or the second engine is configured for standby operation in-flight. 
+
+
+
+3.    The multi-engine aircraft of claim 1 or 2, wherein the air pressure line includes a control valve operable to fluidly block and fluidly unblock the air pressure line. 
+
+
+
+4.    The multi-engine aircraft of claim 3, wherein the pressure wave damper connects to the air pressure line at a location proximate to the control valve, and neck dimensions of the pressure wave damper are tuned to resonate with a volume of the pressure wave damper at a most prevalent excitation frequency and/or an Eigen frequency of the air pressure line, to dissipate energy imparted to the air pressure line via operation of the control valve prior to distressing the air pressure line. 
+
+
+
+5.    The multi-engine aircraft of claim 4, wherein the location corresponds to a pressure wave maximum experienced by the air pressure line during operation of the aircraft. 
+
+
+
+6.    The multi-engine aircraft of claim 5, wherein the pressure wave maximum is calculated as a maximum air pressure in the air pressure line when the control valve switches between one of: i) from fluidly blocking the air pressure line to fluidly unblocking the air pressure line, and ii) from fluidly unblocking the air pressure line to fluidly blocking the air pressure line. 
+
+
+
+7.    The multi-engine aircraft of any one of claims 1 to 6, wherein the pressure wave damper communicating with the air pressure line is a plurality of pressure wave dampers communicating with a plurality of air pressure lines that are part of the air systems of the first and second engines, each of the plurality of pressure wave dampers being disposed at a location corresponding to a pressure wave maximum of an air pressure line of the plurality of air pressure lines corresponding to that pressure wave damper. 
+
+
+
+8.    The multi-engine aircraft of any one of claims 1 to 6, wherein the pressure wave damper comprises a neck and a resonator volume, the neck fluidly connects the resonator volume to the air pressure line, and dimensions of the neck and the resonator volume are configured to attenuate a frequency of a pressure wave in the air pressure line. 
+
+
+
+9.    An aircraft, comprising:a first engine having a bleed air system;a second engine having a bleed air system;a source of pressurized air that is external to the first engine and/or the second engine, the source of pressurized air being selectively fluidly connectable to the bleed air system of the at least one of the first and the second engine via a plurality of air conduits; and a pressure wave damper fluidly connected to at least one of the plurality of air conduits between the bleed air systems of the first and second engines. 
+
+
+
+10.    The aircraft of claim 9, further comprising at least one control valve disposed fluidly between the source of pressurized air and the bleed air system of the at least one of the first and the second engine, the at least one control valve being operable to selectively fluidly connect the source of pressurized air to the bleed air system of the at least one of the first and the second engine, and wherein the pressure wave damper is disposed fluidly proximate to the at least one control valve. 
+
+
+
+11.    The aircraft of claim 10, wherein at least one of the first and second engines is configured to operate in a sub-idle mode while another one of the first and second engines is operating in an active mode. 
+
+
+
+12.    The aircraft of any one of claims 9 to 11, wherein each of the first and the second engine is operable in any one of a standby mode and an active mode, and the source of pressurized air is: a) the bleed air system of the second engine when the first engine is operating in the standby mode, b) the bleed air system of the first engine when the second engine is operating in the standby mode. 
+
+
+
+13.    The aircraft of claim 12, further comprising a second source of pressurized air that is external to both the first and the second engine, the second source of pressurized air being selectively fluidly connectable simultaneously to both first and the second engine, and the pressure wave damper is a plurality of pressure wave dampers that includes a first pressure wave damper disposed fluidly between the second source of pressurized air and the bleed air system of the first engine, and a second pressure wave damper disposed fluidly between the second source of pressurized air and the bleed air system of the second engine. 
+
+
+
+14.    The aircraft of claim 13, wherein the second source of pressurized air is an auxiliary power unit of the aircraft. 
+
+
+
+15.    The aircraft of claim 13, wherein the second source of pressurized air is an air compressor of the aircraft. 
+
+
+
+16.    An engine system of a multi-engine aircraft, comprising:a first engine operable in an active mode to provide motive power to the aircraft and in a standby mode in which the first engine provides substantially no motive power to the aircraft, the first engine having a first bleed air system enabling operation of the first engine in the active mode;a second engine operable in an active mode to provide motive power to the aircraft and in a standby mode in which the first engine provides substantially no motive power to the aircraft, the second engine having a second bleed air system enabling operation of the second engine in the active mode;an air system operatively connected to the first and second bleed air systems to selectively execute any one of: i) fluidly connect the first and second bleed air systems to each other, and ii) fluidly disconnect the first and second bleed air systems from each other; and a pressure wave damper positioned in the air system so as to attenuate at least a part of air pressure fluctuations generated in the air system during a switch over of the air system between: i) fluidly connecting the first and second bleed air systems to each other, and ii) fluidly disconnecting the first and second bleed air systems from each other. 
+
+
+
+17.    The engine system of claim 16, wherein the air system comprises at least one control valve for executing the any one of i) fluidly connecting the first and second bleed air systems to each other, and ii) fluidly disconnecting the first and second bleed air systems from each other; and the pressure wave damper is positioned fluidly proximate to the at least one control valve. 
+
+
+
+18.    The engine system of claim 16 or 17, wherein the air system comprises a first control valve operable to selectively connect the first and second bleed air systems to each other, and the pressure wave damper is a plurality of pressure wave dampers that includes a first pressure wave damper disposed fluidly between the first control valve and the first bleed air system, and a second pressure wave damper disposed fluidly between the first control valve and the second bleed air system. 
+
+
+
+19.    The engine system of claim 18, wherein the air system comprises a second control valve operable to selectively connect the first bleed air system to a source of pressurized air external to both the first and second engines, a third control valve operable to selectively connect the second bleed air system to the source of pressurized air, the plurality of pressure wave dampers includes a third pressure wave damper disposed fluidly between the second control valve and the first bleed air system, and a fourth pressure wave damper disposed fluidly between the third control valve and the second bleed air system. 
+
+
+
+20.    The engine system of claim 19, wherein the source of pressurized air is one of: an auxiliary power unit (APU) and an air compressor. 

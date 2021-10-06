@@ -1,0 +1,86 @@
+TILE -
+CA2998605A1 - Method and system for operating a gas turbine engine 
+      - Google Patents
+Abstract -
+A method for operating a gas turbine engine comprises providing fuel flow and compressed airflow to a combustor with a fuel-to-air ratio, the compressed airflow being from a compressed air source; detecting at least one parameter indicative of the fuel-to-air ratio being below a predetermined value; and bleeding compressed air from the compressed air source when the at least one parameter indicative of the fuel-to-air ratio is below the predetermined value to increase the fuel-to-air ratio to at least the predetermined value.
+Claims - 
+
+
+
+1. A method for operating a gas turbine engine, the method comprising:providing fuel flow and compressed airflow to a combustor with a fuel-to-air ratio, the compressed airflow being from a compressed air source;detecting at least one parameter indicative of the fuel-to-air ratio being below a predetermined value; and bleeding compressed air from the compressed air source when the at least one parameter indicative of the fuel-to-air ratio is below the predetermined value to increase the fuel-to-air ratio to at least the predetermined value. 
+
+
+
+2. The method as defined in claim 1, comprising, prior to detecting the at least one parameter, increasing the fuel flow to the combustor. 
+
+
+
+3. The method as defined in any one of claims 1 and 2, wherein detecting the at least one parameter comprises detecting an acceleration command and comprises automatically bleeding the compressed air to increase the fuel-to-air ratio within the combustor when detecting the acceleration command. 
+
+
+
+4. The method as defined in any one of claims 1 to 3, wherein detecting at least one parameter comprises detecting at least one condition, the method further comprising ceasing bleeding of the compressed air when the condition is no longer detected. 
+
+
+
+5. The method as defined in any one of claims 1 to 4, comprising attaining a target rotational speed of an engine rotor and then ceasing bleeding the compressed air. 
+
+
+
+6. The method as defined in any one of claims 1 to 5, wherein bleeding the compressed air comprises bleeding the compressed air to a bypass duct of the gas turbine engine. 
+
+
+
+7. The method as defined in any one of claims 1 to 5, wherein bleeding the compressed air comprises bleeding compressed air from a transfer tube fluidly connected to the compressed air source, the compressed air source being a plenum. 
+
+
+
+8. The method as defined in any one of claims 1 to 7, wherein providing the fuel flow and the compressed airflow comprises providing a least amount of compressed air relative to the fuel flow to prevent engine flame-out. 
+
+
+
+9. The method as defined in any one of claims 1 to 8, wherein increasing the fuel flow to the combustor is indicative of an acceleration from a ground idle state. 
+
+
+
+10. A system for operating a gas turbine engine, the system comprising:a processor unit; and a non-transitory computer-readable memory communicatively coupled to the processing unit and comprising computer-readable program instructions executable by the processing unit for:receiving a signal of at least one parameter indicative of a fuel-to-air ratio in a combustor being below a predetermined value; and in response to receiving the signal:generating a command causing compressed air to bleed from a compressed air source feeding the combustor to increase the fuel-to-air ratio within the combustor to at least the predetermined value. 
+
+
+
+11. The system as defined in claim 10, comprising receiving an acceleration command for the engine, and in response to receiving the acceleration command, generating the command causing the compressed air to bleed from the compressed air source. 
+
+
+
+12. The system as defined in any one of claims 10 and 11, wherein generating the command causing the compressed air to bleed comprises causing the compressed air to bleed to a bypass duct of the engine. 
+
+
+
+13. The system as defined in any one of claims 10 to 12, wherein generating the command causing the compressed air to bleed comprises causing the compressed air to bleed from a transfer tube fluidly connected to the compressed air source, the compressed air source being a plenum surrounding the combustor. 
+
+
+
+14. The system as defined in any one of claims 10 to 13, wherein generating the command causing the compressed air to bleed comprises causing the compressed air to bleed a plenum surrounding the combustor. 
+
+
+
+15. The system as defined in any one of claims 10 to 14, wherein the signal comprises an acceleration command for the engine. 
+
+
+
+16. The system as defined in any one of claims 10 to 15, wherein the fuel-to-air ratio comprises a least amount of compressed air to prevent engine flame-out. 
+
+
+
+17. The system as defined in claim 15, wherein the acceleration command is indicative of an acceleration from a ground idle state. 
+
+
+
+18. A system for operating a gas turbine engine, the system comprising:a combustor having an outer liner;a plenum surrounding the combustor and defined between a gas generator case and the outer liner;a transfer tube having an inlet fluidly connected to the plenum and at least two outlets, a first flow passageway defined between the inlet and a first outlet of the at least two outlets, the first flow passageway configured to supply compressed air from the plenum to external systems, a second flow passageway defined between the inlet and a second outlet of the at least two outlets, the second flow passageway connected to a discharge region outside of the plenum;a flow valve disposed within the second flow passageway and operable between an open position and a closed position, in the open position the flow valve is adapted to fluidly connect the plenum with the discharge region and in the closed position the flow valve is adapted to block the second flow passageway between the plenum and the discharge region; and a controller communicatively coupled to the flow valve to control operation thereof by:causing the flow valve to open for a time period; and subsequent to the time period, causing the fuel flow valve to close. 
+
+
+
+19. The system as defined in claim 18, wherein the flow valve comprises a sleeve-valve system including an inner sleeve and an outer sleeve surrounding the inner sleeve, the inner and outer sleeves rotatable relative to each other, the inner and outer sleeves each comprising at least one opening defined therein, in the open position the corresponding at least one opening of the inner sleeve is positioned at least partially in register with the corresponding at least one opening of the outer sleeve, and in the closed position the corresponding at least one opening of the inner sleeve is positioned away from the corresponding at least one opening of the outer sleeve to block the second flow passageway. 
+
+
+
+20. The system as defined in any one of claims 18 and 19, wherein the discharge region is configured to be disposed in a bypass duct of the gas turbine engine. 
